@@ -1,0 +1,73 @@
+//5 - Exercício para Praticar Múltiplos Construtores em Java:
+
+Crie uma classe **`Produto`** que representará um produto em uma loja. Essa classe deve conter os seguintes atributos privados:
+- Nome (do tipo String)
+- Preço (do tipo double)
+- Quantidade em Estoque (do tipo int)
+Implemente múltiplos métodos construtores na classe **`Produto`** para permitir diferentes maneiras de inicializar um objeto **`Produto`**. Os métodos construtores devem ser os seguintes:
+1. Um construtor que aceita apenas o nome do produto e inicializa os demais atributos com valores padrão (preço = 0.0 e quantidade em estoque = 0).
+2. Um construtor que aceita o nome e o preço do produto, inicializando a quantidade em estoque com o valor padrão (0).
+3. Um construtor que aceita o nome, o preço e a quantidade em estoque do produto.
+Após criar a classe **`Produto`**, desenvolva um programa principal que permita ao usuário criar objetos dessa classe utilizando os diferentes construtores implementados e exibir as características
+dos produtos criados.
+Certifique-se de que os métodos construtores estão sendo utilizados corretamente para inicializar os objetos da classe **`Produto`** com os valores fornecidos pelo usuário.
+
+
+import java.util.Scanner;
+
+public class Produto {
+    // Atributos privados
+    private String nome;
+    private double preco;
+    private int quantidadeEmEstoque;
+
+    // Construtor #1: Aceita apenas o nome do produto e inicializa os demais atributos com valores padrão
+    public Produto(String nome) {
+        this.nome = nome;
+        this.preco = 0.0;
+        this.quantidadeEmEstoque = 0;
+    }
+
+    // Construtor #2: Aceita o nome e o preço do produto, inicializando a quantidade em estoque com o valor padrão
+    public Produto(String nome, double preco) {
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidadeEmEstoque = 0;
+    }
+
+    // Construtor #3: Aceita o nome, o preço e a quantidade em estoque do produto
+    public Produto(String nome, double preco, int quantidadeEmEstoque) {
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidadeEmEstoque = quantidadeEmEstoque;
+    }
+
+    // Método principal para teste
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Criando objetos da classe Produto usando diferentes construtores
+        Produto produto1 = new Produto("Camiseta");
+        Produto produto2 = new Produto("Tênis", 99.99);
+        Produto produto3 = new Produto("Calça Jeans", 79.99, 50);
+
+        // Exibindo características dos produtos criados
+        System.out.println("Produto 1:");
+        exibirDetalhesProduto(produto1);
+
+        System.out.println("\nProduto 2:");
+        exibirDetalhesProduto(produto2);
+
+        System.out.println("\nProduto 3:");
+        exibirDetalhesProduto(produto3);
+
+        scanner.close();
+    }
+
+    // Método auxiliar para exibir características do produto
+    public static void exibirDetalhesProduto(Produto produto) {
+        System.out.println("Nome: " + produto.nome);
+        System.out.println("Preço: R$" + produto.preco);
+        System.out.println("Quantidade em Estoque: " + produto.quantidadeEmEstoque);
+    }
+}
